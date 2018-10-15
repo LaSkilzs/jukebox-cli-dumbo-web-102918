@@ -33,22 +33,18 @@ end
 
 
 def play(my_songs)
-  binding.pry
+  # binding.pry
   
   puts "Please enter a song name or number: "
-  music = gets.strip
+  music = gets.chomp
   
-  
-  
-  
-  my_songs.each do |song, idx|
-    if (music.to_i) == idx
-      puts "Playing <#{song}>"
-    elsif music == song
-      puts "Playing <#{song}>"
+    if (1..9).to_a.include?(music.to_i)    
+      puts "Playing #{my_songs[music.to_i - 1]}" 
+    elsif my_songs.include?(music)   
+      puts "Playing #{music}"
+    else
+      puts "Invalid input, please try again"
     end
-  end
-    puts "Invalid input, please try again"
 end
 
 def exit_jukebox
